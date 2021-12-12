@@ -6,8 +6,8 @@ SRCS = ft_check_acs.c ft_perror.c ft_split.c \
 
 OBJS = $(SRCS:.c=.o)
 
-CC = GCC
-FLAGS = -Wall -Werror -Wextra
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
 
 all : $(NAME)
 $(NAME) : $(OBJS)

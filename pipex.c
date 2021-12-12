@@ -15,6 +15,7 @@
 void	parrent_work(t_pipex *pipex, char **av, char **envp)
 {
 	pipex->fd2 = open(av[4], O_RDWR | O_CREAT | O_TRUNC, 0777);
+	wait(NULL);
 	if (pipex->fd2 == -1)
 		ft_perror("outfile error :");
 	pipex->cmd2_args = ft_split(av[3], ' ');
@@ -63,10 +64,7 @@ int	main(int ac, char **av, char **envp)
 		ft_perror("forking failed");
 	if (pid1 == 0)
 		child_work(&pop, av, envp);
-	else
-	{
-		wait(NULL);
+	else	
 		parrent_work(&pop, av, envp);
-	}
 	return (0);
 }

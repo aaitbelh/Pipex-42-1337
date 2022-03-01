@@ -6,11 +6,12 @@
 /*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 12:08:12 by aaitbelh          #+#    #+#             */
-/*   Updated: 2021/12/11 18:06:27 by aaitbelh         ###   ########.fr       */
+/*   Updated: 2022/03/01 10:40:44 by aaitbelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+// #include "pipex.h"
+#include <stdlib.h>
 
 static char	**free_table(char **ptr, int i)
 {

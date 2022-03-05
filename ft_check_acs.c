@@ -6,23 +6,25 @@
 /*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 11:23:51 by aaitbelh          #+#    #+#             */
-/*   Updated: 2022/03/01 10:46:29 by aaitbelh         ###   ########.fr       */
+/*   Updated: 2022/03/05 15:32:10 by aaitbelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static void free_all(char **str)
+static void	free_all(char **str)
 {
-	int i;
+	int	i;
+
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		free(str[i]);
 		i++;
 	}
 	free(str);
 }
+
 static int	find_path(char **env)
 {
 	int	i;
@@ -57,7 +59,8 @@ char	*ft_check_acs(char **env, char *cmd)
 	while (string[j])
 	{
 		check = ft_strjoin(string[j], cmd);
-		if (!access(check, X_OK)){
+		if (!access(check, X_OK))
+		{
 			free(cmd);
 			free_all(string);
 			return (check);

@@ -6,7 +6,7 @@
 /*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 21:37:02 by aaitbelh          #+#    #+#             */
-/*   Updated: 2022/03/01 10:46:58 by aaitbelh         ###   ########.fr       */
+/*   Updated: 2022/03/05 15:36:16 by aaitbelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	child_work(t_pipex *pipex, char **av, char **envp)
 int	main(int ac, char **av, char **envp)
 {
 	int		pid1;
+	int		pid2;
 	t_pipex	pop;
 
 	if (ac != 5)
@@ -64,7 +65,10 @@ int	main(int ac, char **av, char **envp)
 		ft_perror("forking failed");
 	if (pid1 == 0)
 		child_work(&pop, av, envp);
-	else	
+	pid2 = fork();
+	if (pid2 == 0)
 		parrent_work(&pop, av, envp);
+	waitpid(pid1, NULL, 0);
+	waitpid(pid2, NULL, 0);
 	return (0);
 }

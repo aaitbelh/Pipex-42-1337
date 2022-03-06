@@ -6,7 +6,7 @@
 /*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 21:37:02 by aaitbelh          #+#    #+#             */
-/*   Updated: 2022/03/05 15:36:16 by aaitbelh         ###   ########.fr       */
+/*   Updated: 2022/03/06 11:12:30 by aaitbelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	main(int ac, char **av, char **envp)
 	pid2 = fork();
 	if (pid2 == 0)
 		parrent_work(&pop, av, envp);
+	close(pop.p[1]);
 	waitpid(pid1, NULL, 0);
 	waitpid(pid2, NULL, 0);
 	return (0);
